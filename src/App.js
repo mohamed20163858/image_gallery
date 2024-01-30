@@ -5,6 +5,7 @@ import ImageSearch from "./components/ImageSearch";
 function App() {
   const [images, setImages] = useState([]);
   const [term, setTerm] = useState("");
+
   useEffect(() => {
     async function fetchImages() {
       const response = await fetch(
@@ -20,7 +21,7 @@ function App() {
       {/* ImageSearch */}
       <ImageSearch setTerm={setTerm} />
       {/* ImageCards */}
-      <div className="grid grid-cols-3 place-items-center gap-7 w-[70%]">
+      <div className=" flex justify-center gap-5 flex-wrap xl:grid xl:grid-cols-3 xl:place-items-center xl:gap-7 2xl:w-[80%] ">
         {images &&
           images.map((image) => (
             <ImageCard
@@ -34,6 +35,7 @@ function App() {
             />
           ))}
       </div>
+      {images.length === 0 && <h1>No Results Found</h1>}
     </div>
   );
 }

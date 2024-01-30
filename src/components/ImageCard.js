@@ -10,12 +10,12 @@ function ImageCard({
 }) {
   const tags = picTags?.split(",") || [];
   return (
-    <div className="flex flex-col max-w-sm border rounded-md bg-white min-w-[350px]">
+    <div className="flex flex-col max-w-sm border rounded-md bg-white w-[300px] lg:min-w-[450px]">
       <div className="w-full">
         <img
           src={webformatURL}
           alt="pixabay"
-          className="object-cover h-[200px] w-full"
+          className="object-cover h-[250px] w-full lg:h-[400px] "
         />
         <h2 className="text-purple-700 text-2xl font-bold px-3">
           Photo by {user}

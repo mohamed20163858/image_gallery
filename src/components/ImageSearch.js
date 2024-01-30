@@ -7,16 +7,23 @@ function ImageSearch({ setTerm }) {
     setTerm(query);
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="mt-10">
+      <div className="relative flex items-center border-b-2 border-slate-400">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search Image Term..."
+          className="border-0 outline-0 w-[400px] h-[40px] p-5"
         />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+        <button
+          type="submit"
+          className="absolute right-0 text-white bg-[#36A7A5] p-2 rounded-md"
+        >
+          Search
+        </button>
+      </div>
+    </form>
   );
 }
 
