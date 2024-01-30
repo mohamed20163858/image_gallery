@@ -14,7 +14,7 @@ function ImageSearch({ setTerm }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search Image Term..."
-          className="border-0 outline-0 w-[400px] h-[40px] p-5"
+          className="border-0 outline-0 w-[300px] lg:w-[400px] h-[40px] p-5"
         />
         <button
           type="submit"
