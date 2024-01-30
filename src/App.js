@@ -23,7 +23,7 @@ function App() {
       {/* ImageSearch */}
       <ImageSearch setTerm={setTerm} />
       {/* ImageCards */}
-      <div className=" flex justify-center gap-5 flex-wrap xl:grid xl:grid-cols-3 xl:place-items-center xl:gap-7 2xl:w-[80%] ">
+      <div className=" flex justify-center gap-5 flex-wrap xl:grid xl:grid-cols-3 xl:place-items-center xl:gap-7  ">
         {!isLoading &&
           images &&
           images.map((image) => (
