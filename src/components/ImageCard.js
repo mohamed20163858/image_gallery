@@ -1,35 +1,47 @@
 import React from "react";
 
-function ImageCard() {
-  const tags = "yellow, flower, blossom".split(",");
+function ImageCard({
+  webformatURL,
+  user,
+  picTags,
+  views,
+  downloads,
+  collections,
+}) {
+  const tags = picTags?.split(",") || [];
   return (
-    <div className="flex flex-col max-w-sm border rounded-md bg-white">
-      <div>
+    <div className="flex flex-col max-w-sm border rounded-md bg-white min-w-[350px]">
+      <div className="w-full">
         <img
-          src="https://pixabay.com/get/g57c72680c311e9fd4707717cdae45bcc44d9292ac4902f613810be16b99d64f93f1ffad7f2ec7daee2770f1b5bdc9938_640.jpg"
+          src={webformatURL}
           alt="pixabay"
-          className="object-contain"
+          className="object-cover h-[200px] w-full"
         />
-        <h2 className="text-purple-700 text-2xl font-bold px-3">Photo by </h2>
+        <h2 className="text-purple-700 text-2xl font-bold px-3">
+          Photo by {user}
+        </h2>
       </div>
       <div className="px-3 my-3">
         <ul>
           <li>
-            <strong>Views:</strong>
+            <strong>Views: {views}</strong>
           </li>
           <li>
-            <strong>Downloads:</strong>
+            <strong>Downloads: {downloads}</strong>
           </li>
           <li>
-            <strong>Collections:</strong>
+            <strong>Collections: {collections}</strong>
           </li>
         </ul>
       </div>
-      <div className="flex gap-2 px-3 mb-3">
+      <div className="flex flex-wrap gap-2 px-3 mb-3 ">
         {tags.map((tag, index) => (
-          <span key={index} className="bg-slate-200 rounded-full p-2">
+          <p
+            key={index}
+            className="bg-slate-200 rounded-full p-2  inline-block text-sm"
+          >
             {tag}
-          </span>
+          </p>
         ))}
       </div>
     </div>
