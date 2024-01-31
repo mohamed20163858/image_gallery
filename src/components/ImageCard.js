@@ -1,5 +1,6 @@
 import React from "react";
-
+import Axios from "axios";
+import fileDownload from "js-file-download";
 function ImageCard({
   webformatURL,
   user,
@@ -9,6 +10,14 @@ function ImageCard({
   collections,
 }) {
   const tags = picTags?.split(",") || [];
+  const fileName = webformatURL.split("/").pop();
+  function download(url, filename) {
+    Axios.get(url, {
+      responseType: "blob",
+    }).then((res) => {
+      fileDownload(res.data, filename);
+    });
+  }
   return (
     <div className="flex flex-col max-w-sm border rounded-md bg-white w-[300px] lg:min-w-[450px]">
       <div className="w-full">
@@ -43,6 +52,14 @@ function ImageCard({
             {tag}
           </p>
         ))}
+      </div>
+      <div className="flex justify-center mt-5">
+        <button
+          onClick={() => download(webformatURL, fileName)}
+          className="text-white bg-[#36A7A5] p-2 rounded-md w-[200px] mb-[20px]"
+        >
+          Download
+        </button>
       </div>
     </div>
   );
